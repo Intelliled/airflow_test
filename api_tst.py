@@ -5,6 +5,7 @@ from airflow.operators.email import EmailOperator
 from datetime import datetime, timedelta
 import pandas as pd
 import requests
+from datetime import datetime
 
 def extract_data():
     """Извлечение данных из API"""
@@ -40,7 +41,7 @@ def load_data(**kwargs):
     
     print("Загрузка данных...")
     df = pd.DataFrame(data)
-    filename = f"/tmp/users_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    filename = f"/opt/airflow/outputs/users_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
     df.to_csv(filename, index=False)
     print(f"Данные сохранены в {filename}")
     return filename
