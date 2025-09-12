@@ -7,6 +7,9 @@ import pandas as pd
 import requests
 from datetime import datetime
 
+#test merge
+
+
 def extract_data():
     """Извлечение данных из API"""
     print("Извлечение данных...")
